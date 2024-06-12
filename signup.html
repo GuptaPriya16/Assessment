@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sign Up</title>
+<style>
+body {
+  background-color: #333;
+  color: #fff;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.container {
+  background-color: #444;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 50px auto;
+  max-width: 400px;
+}
+
+input[type="text"] {
+  background-color: #555;
+  border: 1px solid #777;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+}
+
+button {
+  background-color: #0f0;
+  border: none;
+  border-radius: 5px;
+  color: #000;
+  padding: 10px 20px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+p, ul {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style-position: inside;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sign Up</h1>
+    <h2>User Name</h2>
+    <div>
+      <p>Username is your online identity</p><ul>
+        <li>Your username should only contain letters, numbers, underscores or hyphens.</li>
+        <li style="margin-right: 80px;">No spaces or special characters allowed.</li>
+        <li style="margin-right: 95px;">Your username should not be offensive or contain profanity.</li>
+      </ul>
+    </div>
+
+    <form id="signUpForm" action="signup2.html">
+      <input type="text" id="username" placeholder="Username">
+      <input type="text" id="firstName" placeholder="First Name">
+      <input type="text" id="lastName" placeholder="Last Name">
+      <button type="submit" id="submitButton">Next</button>
+    </form>
+  </div>
+  <script>
+    const form = document.querySelector('#signUpForm');
+    const usernameInput = document.querySelector('#username');
+    const firstNameInput = document.querySelector('#firstName');
+    const lastNameInput = document.querySelector('#lastName');
+    const submitButton = document.querySelector('#submitButton');
+
+    submitButton.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      const username = usernameInput.value;
+      if (!validateUsername(username)) {
+        alert('Invalid username. Please use only letters, numbers, underscores, or hyphens.');
+        return;
+      }
+
+      const firstName = firstNameInput.value;
+      const lastName = lastNameInput.value;
+      if (!firstName || !lastName) {
+        alert('Please enter your first and last name.');
+        return;
+      }
+
+      form.submit();
+    });
+
+    function validateUsername(username) {
+      if (!username) {
+        return false;
+      }
+
+      
+      if (!regex.test(username)) {
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</body>
+</html>
